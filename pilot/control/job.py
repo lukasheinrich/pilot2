@@ -414,7 +414,7 @@ def getjob_server_command(url, port):
         url = config.Pilot.pandaserver
     if url == "":
         logger.fatal('PanDA server url not set (either as pilot option or in config file)')
-    elif not url.startswith("https://"):
+    elif not url.startswith("https://") and not url.startswith('http://'):
         url = 'https://' + url
         logger.warning('detected missing protocol in server url (added)')
 
