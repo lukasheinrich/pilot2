@@ -101,8 +101,9 @@ def get_memory_monitor_setup(job):
     # Now add the MemoryMonitor command
     cmd = "%s; MemoryMonitor --pid %d --filename %s --json-summary %s --interval %d" %\
           (setup, job.pid, get_memory_monitor_output_filename(), get_memory_monitor_summary_filename(), interval)
-    cmd = "cd " + job.workdir + ";" + cmd
 
+    cmd = 'echo hello > {}'.format(get_memory_monitor_summary_filename())
+    cmd = "cd " + job.workdir + ";" + cmd
     return cmd
 
 
